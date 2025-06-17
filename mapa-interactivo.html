@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Interactivo | Entre Tazas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link href="css/estilos.css" rel="stylesheet" />
+  <script src="js/menu.js" defer></script>
+</head>
+<body>
+
+  <header class="header-flex">
+  <div class="logo">
+  <a href="index.html">
+    <div class="contenedor-logo">
+      <img src="imagenes/Logo3.svg" alt="Logo Entre Tazas">
+    </div>
+  </a>
+</div>
+
+  <nav>
+    <!-- Botón hamburguesa visible solo en mobile -->
+    <button class="menu-btn" type="button" title="menu">
+      <div class="btn-linea"></div>
+      <div class="btn-linea"></div>
+      <div class="btn-linea"></div>
+    </button>
+
+    <!-- Menú de navegación -->
+    <ul class="menu-navegacion">
+      <li class="nav-item"><a href="coffee-guide.html">Guide</a></li>
+      <li class="nav-item"><a href="coffee-news.html">News</a></li>
+      <li class="nav-item"><a href="mapa-interactivo.html">Mapa</a></li>
+      <li class="nav-item"><a href="enciclopedia.html">Enciclopedia</a></li>
+      <li class="nav-item"><a href="comunidad.html">Comunidad</a></li>
+      <li class="nav-item"><a href="nosotros.html">Nosotros</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <h1>Mapa Interactivo</h1>
+
+    <section id="mapa">
+      <div class="mapa-grid">
+        <div class="mapa-principal">
+      <h2>Find a Coffee</h2>
+
+      <form class="mapa-search" action="https://www.google.com/maps" target="mapFrame" method="get">
+        <input type="hidden" name="output" value="embed">
+        <input
+          type="text"
+          name="q"
+          placeholder="Buscar cafetería (p. ej. Café Tortoni)"
+          required
+        />
+        <button type="submit">🔍</button>
+      </form>
+      
+      <div class="mapa-container">
+        <iframe
+          name="mapFrame"
+          src="https://www.google.com/maps?q=Cuervo+Cafe+Buenos+Aires&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+      <br>
+      <p>Explorá nuevos sabores cerca tuyo
+¿Sabías que cada barrio guarda secretos cafeteros esperando ser descubiertos? En Entre Tazas creemos que una buena taza de café puede transformar un día común en uno especial. Por eso, desarrollamos este mapa interactivo para ayudarte a encontrar espacios únicos donde disfrutar del café que más te gusta, ya sea solo, en buena compañía o mientras trabajás o estudiás.
+    </p>
+<br>
+<p>Nuestro objetivo es acercarte a experiencias reales: cafeterías que tuestan sus propios granos, rincones escondidos con ambientaciones acogedoras, y proyectos independientes que celebran la cultura cafetera desde la pasión y el detalle. Al hacer clic en cada punto del mapa, no solo estás buscando un lugar donde tomar café, sino también conectándote con una historia, con personas y con aromas que invitan a quedarse un rato más.</p>
+<br>
+<p>Este espacio también está hecho por vos. Si conocés una cafetería que te inspira o que simplemente tiene el mejor flat white de la ciudad, ¡compartila! Queremos que este mapa siga creciendo con recomendaciones genuinas, reales, humanas. Entre todos, podemos construir una guía viva, colaborativa y cercana de los mejores spots cafeteros.</p>
+
+<br>
+Porque al final del día, no se trata solo de café, sino de los momentos que se construyen alrededor de una taza.</p>
+<br>
+    <div class="fotomapa-container">
+      <img src="imagenes/fotomapa.png" alt="foto decorativa">
+    </div>
+  </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div>
+        <p>© 2025 Entre Tazas | Facultad de Palermo</p>
+        <img src="imagenes/instagram (5).png" alt="Instagram" />
+        <img src="imagenes/facebook (2).png" alt="Facebook" />
+        <img src="imagenes/tik-tok (2).png" alt="Facebook" />
+      </div>
+  </footer>
+</body>
+</html>
