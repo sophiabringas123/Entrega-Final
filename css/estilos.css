@@ -1,0 +1,929 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* ========== MOBILE FIRST: ESTILOS BASE (hasta 767px) ========== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  font-family: nunito, sans-serif;
+  background-color: #fffaf4;
+  color: #333;
+  line-height: 1.6;
+  font-size: 1.1em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* HEADER */
+header {
+  background-color: #f2e9e4;
+  padding: 10px 15px;
+}
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+/* Logo responsive */
+.logo img {
+  height: 90px;
+  transition: height 0.3s;
+}
+
+/* Botón hamburguesa visible solo en mobile */
+.menu-btn {
+  background: hsl(0 0% 100% / 0.25);
+  border-radius: 50%;
+  box-shadow: -5px 5px 5px hsl(180 100% 4% / 0.2);
+  padding: .75rem;
+  width: 3rem;
+  aspect-ratio: 1;
+  cursor: pointer;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  z-index: 9000;
+  transition: all 0.3s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Líneas del botón */
+.menu-btn .btn-linea {
+  width: 25px;
+  height: 3px;
+  margin: 4px 0;
+  background: hsl(0 0% 90%);
+  transition: all 0.3s ease-out;
+}
+
+/* Animación al hacer clic (convertir en "X") */
+.menuVisible .menu-btn .btn-linea:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 6px);
+}
+.menuVisible .menu-btn .btn-linea:nth-child(2) {
+  opacity: 0;
+}
+.menuVisible .menu-btn .btn-linea:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -6px);
+}
+
+/* Menú oculto por defecto */
+.menu-navegacion {
+  background-color: hsl(39, 92%, 36%);
+  display: grid;
+  place-items: center;
+  position: fixed;
+  inset: 0;
+  translate: 100%;
+  z-index: 8000;
+  transition: translate 0.6s ease;
+}
+
+/* Menú visible (cuando nav tiene .menuVisible) */
+.menuVisible .menu-navegacion {
+  translate: 0;
+}
+
+/* Estilos de los links del menú */
+.menu-navegacion li a {
+  border-bottom: solid 3px hsl(0 0% 100% / 0.1);
+  color: white;
+  display: block;
+  font-size: 1.5rem;
+  text-align: center;
+  width: min(70vw, 20rem);
+  padding: .5rem;
+  text-decoration: none;
+}
+
+.menu-navegacion li a:hover {
+  border-bottom: solid 3px hsl(0 0% 100% / 0.5);
+  transition: all .3s;
+}
+
+/* Banner */
+#banner {
+  width: 100vw;
+  margin: 0;
+  min-height: 300px;
+  padding: 60px 20px;
+  background-image: url("../imagenes/bannerinicio2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.banner-texto {
+  background-color: rgba(247, 247, 247, 0.4);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-shadow: 1px 1px 3px rgb(239, 236, 236);
+}
+
+/* Secciones */
+main {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+main img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#presentacion {
+  background-color: #fffaf5;
+  padding: 20px 15px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+#presentacion p {
+  font-weight: bold;
+  color: #5c4033;
+  font-size: 1.2em;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+h1 {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #402218;
+}
+
+h2, h3 {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  margin-bottom: 15px;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Bloques y tarjetas */
+.bloques {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.tarjeta {
+  width: 80%;
+  max-width: 420px;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #3a1f0d;
+  margin-bottom: 18px;
+  text-decoration: none;
+  display: block;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tarjeta-oscura { background-color: #a87c65; }
+.tarjeta-clara  { background-color: #d8a86c; }
+
+/* Frases y grilla */
+#frases {
+  background-color: #fffaf5;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#frases h2 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: #5c4033;
+}
+
+.intro-frases {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #7a5c49;
+}
+
+.grilla-frases {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.frase {
+  background-color: #f2e9e4;
+  padding: 20px 25px;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-size: 1.1em;
+  color: #4a2e1c;
+}
+.frase span {
+  display: block;
+  margin-top: 10px;
+  font-style: italic;
+  color: #7c5a43;
+}
+
+/* Spot */
+.spot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+.spot img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 0;
+}
+.spot > div { text-align: center; }
+.spot p { text-align: left; }
+
+/* Galería eventos */
+.galeria-eventos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+.galeria-eventos img {
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: block;
+}
+
+/* Imagen destacada de eventos */
+.evento-imagen-destacada {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px 0 10px 0;
+  position: relative;
+}
+.evento-imagen-destacada img {
+  width: 100%;
+  max-width: 600px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center 70%;
+  border-radius: 22px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: block;
+}
+
+.badge-nuevo {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  background-color: #a87c65;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 18px;
+  padding: 4px 18px;
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  letter-spacing: 1px;
+}
+
+/* Para imagen de la noticia principal (noticias) */
+#noticias img {
+  display: block;
+  margin: 24px auto 12px auto;
+  border-radius: 22px;
+  width: 100%;
+  max-width: 600px;
+  height: 180px;
+  object-fit: cover;
+  object-position: center 60%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+/* Eventos */
+.eventos-lista {
+  padding: 20px;
+  text-align: left;
+}
+.eventos-lista article { margin-bottom: 40px; }
+.eventos-lista h3 {
+  font-size: 1.2em;
+  color: #5c4033;
+  margin-bottom: 12px;
+}
+.eventos-lista ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.eventos-lista li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Videos responsivos y centrados */
+.video-enciclopedia,
+.video-nosotros {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1.5em auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+}
+
+/* Mapa y formulario */
+#mapa {
+  text-align: left;
+  padding: 20px;
+  
+}
+.mapa-search {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.mapa-search input {
+  flex: 1;
+  
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.mapa-search button {
+  padding: 8px 12px;
+  background-color: #5c4033;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.mapa-container {
+  display: flex;
+  justify-content: center;
+}
+.mapa-container iframe {
+  width: 100%;
+  max-width: 600px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Formulario */
+.formulario-review {
+  background-color: #f7f4f1;
+  padding: 25px;
+  border-radius: 16px;
+  max-width: 500px;
+  margin: 30px auto;
+  font-family: Nunito, sans-serif;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+.campo-formulario {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.campo-formulario label {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #402218;
+}
+.campo-formulario input,
+.campo-formulario textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  font-family: inherit;
+  resize: vertical;
+}
+.boton-formulario {
+  text-align: center;
+}
+.boton-formulario input[type="submit"] {
+  background-color: #a87c65;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.boton-formulario input[type="submit"]:hover {
+  background-color: #8e654e;
+}
+
+.contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0px 32px;
+}
+
+/* Footer */
+footer {
+  background-color: #a67c52;
+  color: #fff;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 1em;
+  margin-top: 30px;
+}
+footer img {
+  width: 32px;    
+  height: 32px;
+  margin: 8px 8px 0 8px;
+  vertical-align: middle;
+  transition: transform 0.2s;
+}
+footer img:hover {
+  transform: scale(1.15);
+}
+
+/* ================= BREAKPOINT TABLET =================== */
+@media (min-width: 768px) {
+  /* Logo mediano */
+  .logo img {
+    height: 200px;
+  }
+ 
+  .menu-btn {
+    display: none;
+  }
+  .menu-navegacion {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    translate: 0 !important;
+    background-color: transparent;
+    padding: 0;
+    width: auto;
+    height: auto;
+  }
+  .menu-navegacion li {
+    margin: 0;
+  }
+  .menu-navegacion li a {
+    background-color: transparent;
+    border: none;
+    color: #5c4033;
+    font-size: 1.08rem;
+    font-weight: 600;
+    border-radius: 0;
+    padding: 0 8px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    width: auto;
+  }
+  .menu-navegacion li a:hover {
+    color: #a87c65;
+    background-color: transparent;
+    border-bottom: 2px solid #a87c65;
+  }
+  .spot {
+    display: flex;
+    gap: 1em;
+    align-items: flex-start;
+  }
+  
+  .spot .contenedor-imagen {
+    flex: 0 0 40%;
+  }
+  
+  .spot .spot-text {
+    flex: 1;
+  }
+  .bloques {
+  flex-direction: row;
+  gap: 1em;
+  justify-content: center;
+}
+
+}
+
+/* ==== DESKTOP: grid de 3 columnas ==== */
+@media (min-width: 1024px) {
+  #spots .spot-list,
+  #roasters .spot-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+
+  .spot {
+    display: flex;
+    flex-direction: column;
+  }
+  .spot .contenedor-imagen {
+    margin-bottom: .75em;
+  }
+}
+
+.spot-list .spot .contenedor-imagen {
+  width: 100%;
+  height: 200px;        
+  overflow: hidden;
+}
+
+.spot-list .spot .contenedor-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spot-list .spot .spot-text {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* == Tablet: imagen izquierda, texto derecha == */
+@media (min-width: 768px) {
+  .spot-list .spot {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .spot-list .spot .contenedor-imagen {
+    flex: 0 0 40%;
+    height: 180px;
+  }
+  .spot-list .spot .spot-text {
+    flex: 1;
+  }
+}
+
+/* == Desktop: grid 3 columnas == */
+@media (min-width: 1024px) {
+  #spots .spot-list,
+  #roasters .spot-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  .spot-list .spot {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+  }
+  .spot-list .spot .contenedor-imagen {
+    height: 180px;
+    margin-bottom: 0.75em;
+  }
+
+}
+  .grilla-frases {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header-flex {
+    padding: 10px 32px;
+  }
+
+@media (max-width: 800px) {
+  .evento-imagen-destacada img,
+  #noticias img {
+    max-width: 98vw;
+    height: 120px;
+    border-radius: 18px;
+  }
+  .badge-nuevo {
+    top: 10px;
+    left: 10px;
+    font-size: 0.98em;
+    padding: 3px 10px;
+  }
+}
+
+@media (max-width: 1199px) {
+  nav ul {
+    padding-left: 0;
+    margin: 0;
+  }
+  nav ul li {
+    margin: 0;
+    display: inline-block;
+  }
+  nav ul li a {
+    font-size: 1em;
+    padding: 4px 8px;
+  }
+
+}
+
+.menu-btn:focus:not(:focus-visible),
+.menu-navegacion a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.contenedor-imagen {
+  width: 100%;
+  max-width: 300px;      
+  margin: 0 auto;        
+  overflow: hidden;       
+  position: relative;
+}
+
+.contenedor-imagen img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;     
+}
+
+.contenedor-logo {
+  width: auto;
+  max-width: 200px;    
+  margin: 0;          
+}
+.contenedor-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.menu-navegacion,
+.menu-navegacion ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu-navegacion li {
+  list-style: none;
+}
+
+.spot-list .spot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1.5em;
+}
+.spot-list .spot .contenedor-imagen {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.spot-list .spot .contenedor-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.spot-list .spot .spot-text {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4em;
+}
+
+@media (min-width: 768px) {
+  .spot-list .spot {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1em;
+  }
+  .spot-list .spot .contenedor-imagen {
+    flex: 0 0 40%;
+    height: 180px;
+  }
+  .spot-list .spot .spot-text {
+    flex: 1;
+  }
+}
+
+/* Desktop: grid 3 columnas */
+@media (min-width: 1024px) {
+  #spots .spot-list,
+  #roasters .spot-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+  }
+  .spot-list .spot {
+    flex-direction: column;
+    gap: 0.75em;
+  }
+  .spot-list .spot .contenedor-imagen {
+    height: 180px;
+    margin-bottom: 0.75em;
+  }
+}
+#mapa {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;      
+  margin: 0 auto;        
+  padding: 2rem 1rem;    
+  box-sizing: border-box;
+}
+
+#mapa h2,
+#mapa .mapa-search {
+  justify-self: center;  
+}
+
+#mapa .mapa-container {
+  grid-row: 3;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+#mapa .mapa-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+@media (max-width: 767px) {
+  #mapa {
+    padding: 0 1rem;   
+  }
+@media (min-width: 768px) and (max-width: 1023px) {
+  #mapa {
+    padding: 0 2rem;   
+  }
+}
+
+#mapa {
+  position: relative;  
+}
+
+#mapa .fotomapa-container {
+  position: absolute;
+  top: 1rem;           
+  right: -23rem;      
+ 
+}
+
+#mapa .fotomapa-container img {
+  display: block;
+  width: 400px;        
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+  #mapa .fotomapa-container {
+    position: static;
+    margin: 1rem auto 0;
+    right: auto;
+    top: auto;
+  }
+  /* ————— ESTILOS SOLO MÓVIL (hasta 767px) ————— */
+  /* 1) Que cada tarjeta no centre todo su contenido */
+  .spot-list .spot {
+    align-items: flex-start;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+
+  /* 2) Imagen centrada y con ancho máximo */
+  .spot-list .spot .contenedor-imagen {
+    width: auto;
+    max-width: 220px;
+    margin: 0 auto 15px;
+    height: auto;
+  }
+
+  /* 3) Texto al 100% ancho, alineado a la izquierda + line-height unificado */
+  .spot-list .spot .spot-text {
+    width: 100%;
+    text-align: left;
+    padding: 0 8px;
+    line-height: 1.6;
+  }
+
+  /* 4) Tipografía Nunito solo en móvil */
+  html, body,
+  h1, h2, h3,
+  strong,
+  p, ul, li, a {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+  }
+  h1, h2, h3, strong {
+    font-weight: 700;
+  }
+
+  /* 5) Encabezados de sección a la izquierda */
+  #spots h2,
+  #roasters h2 {
+    text-align: left;
+    padding-left: 8px;
+    margin-bottom: 0.5em;
+  }
+}
+
+.contact-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+  gap: 2rem;
+  padding: 2rem 1rem;
+}
+
+.contact-imagen img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+@media (min-width: 768px) {
+  .contact-grid {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+  .formulario-review {
+    flex: 0 0 48%;  
+    margin: 0;     
+  }
+  .contact-imagen {
+    flex: 0 0 48%;
+  }
+  .contact-imagen img {
+    width: 200%;
+    height: auto;
+  }
+
+
+}
+.footer-legal {
+  font-size: 0.85em;    
+  line-height: 1.4;     
+  color: #6e4717;      
+  margin-top: 0.5em;    
+}
+
+
+
+
